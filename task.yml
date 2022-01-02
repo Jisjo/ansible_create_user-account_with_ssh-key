@@ -1,0 +1,14 @@
+---
+#creating ssh user
+- name: "creat user john"
+  user:
+    name: "{{user_name}}"
+    comment: "remote ssh user"
+
+
+#uploading ssh key. make sure to create ssk key "mykey.pub"
+- name: Set authorized key took from file
+  authorized_key:
+    user: "{{user_name}}"
+    state: present
+    key: "{{ lookup('file', './mykey.pub') }}"
