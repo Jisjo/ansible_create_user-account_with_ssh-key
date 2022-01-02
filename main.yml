@@ -1,0 +1,9 @@
+---
+- name: "setup lunux user account"
+  hosts: all
+  become: true
+  vars:
+    user_name: john
+
+  tasks:
+    - include_tasks: task.yml
